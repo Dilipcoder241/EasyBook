@@ -44,11 +44,11 @@ const Login = () => {
 
   }
 
-  useEffect(() => {
-    if (token) {
-      navigate('/')
-    }
-  }, [token])
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate('/')
+  //   }
+  // }, [token])
 
   return (
     <form onSubmit={onSubmitHandler} className='min-h-[80vh] flex items-center'>

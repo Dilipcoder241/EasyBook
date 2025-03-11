@@ -18,7 +18,11 @@ app.use(express.json())
 // cors error resolve
 app.use(cors(
   {
-    origin: process.env.CORS_ORIGIN,
+    origin: "https://easy-book-m2lo.vercel.app",
+    credentials: true
+  },
+  {
+    origin: "https://easy-book-7udf.vercel.app",
     credentials: true
   }
 ))

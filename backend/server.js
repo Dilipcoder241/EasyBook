@@ -16,16 +16,21 @@ connectCloudinary()
 // middlewares
 app.use(express.json())
 // cors error resolve
-app.use(cors(
-  {
-    origin: "https://easy-book-m2lo.vercel.app",
-    credentials: true
+const allowedOrigins = [
+  "https://easy-book-m2lo.vercel.app",
+  "https://easy-book-7udf.vercel.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
   },
-  {
-    origin: "https://easy-book-7udf.vercel.app",
-    credentials: true
-  }
-))
+  credentials: true
+}));
 
 // api endpoints
 app.use("/api/user", userRouter)

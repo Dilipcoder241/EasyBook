@@ -15,6 +15,7 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
+// cors error resolve
 app.use(cors(
   {
     origin: process.env.CORS_ORIGIN,
